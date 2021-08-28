@@ -19,9 +19,11 @@ while True:
     img.np.array(img)
     img_final = cv2.cvtColor(img_np, cv2.COLOR_BGR2RGB)
     _, frame = webcam.read()
+    fr_height, fr_width, _ = frame.shape
+    img_final[0:fr_height, 0:fr_width, :] = frame[0: fr_height, 0:fr_width, :]
     cv2.imshow("Screen_Recorder", img_final)
 
-    cv2.imshow("webcam", frame)
+    # cv2.imshow("webcam", frame)
 
     captured_video.write(img_final)
     if cv2.waitKey(10) == ord("q"):
