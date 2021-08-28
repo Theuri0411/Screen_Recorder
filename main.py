@@ -16,7 +16,7 @@ webcam = cv2.VideoCapture(1)
 
 while True:
     img = ImageGrab.grab(bbox=(0, 0, width, height))
-    img.np.array(img)
+    img_np = np.array(img)
     img_final = cv2.cvtColor(img_np, cv2.COLOR_BGR2RGB)
     _, frame = webcam.read()
     fr_height, fr_width, _ = frame.shape
